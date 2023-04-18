@@ -5,8 +5,8 @@
 .example-sidenav-content {
   display: flex;
   height: 100%;
-  align-items: center;
-  justify-content: center;
+  padding: 1rem;
+  margin-right: 5rem;
 }
 .example-sidenav {
    user-select: none;
@@ -26,8 +26,12 @@
   transition: transform 300ms ease;
   transform: scaleY(0);
   transform-origin: top;
-  padding-left: 30px;
+  padding-left: 15px;
 }
 .submenu.expanded {
   transform: scaleY(1);
 }
+.mat-sidenav-container {
+  height: 100%;
+}
+

@@ -21,9 +21,6 @@
                     <mat-label>Telefone</mat-label>
                     <input matInput name="telefone" [(ngModel)]="pesquisador.telefone" />
                 </mat-form-field>
-            </div>
-
-            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="left">
                 <mat-form-field>
                     <mat-label>Área de Estudo</mat-label>
                     <input matInput name="areaEstudo" [(ngModel)]="pesquisador.areaEstudo" />
@@ -57,7 +54,8 @@
                     <input matInput name="cidade"
                         [(ngModel)]="pesquisador.enderecoPessoa.cidade" />
                 </mat-form-field>
-
+            </div>
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="left">
                 <mat-form-field>
                     <mat-label>UF</mat-label>
                     <input matInput name="uf" [(ngModel)]="pesquisador.enderecoPessoa.uf" />
