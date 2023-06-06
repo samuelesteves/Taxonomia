@@ -1,10 +1,10 @@
 export class Endereco {
     id!: number
-    logradouro!: string
+    endereco!: string
     cidade!: string
     bairro!: string
     numero!: string
-    uf!: string
+    estado!: string
     cep!: string
     idPessoa!: number
 }

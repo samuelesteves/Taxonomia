@@ -10,7 +10,7 @@ import { PesquisadorService } from '../services/pesquisador.service';
   styleUrls: ['./pesquisador-lst.component.css']
 })
 export class PesquisadorLstComponent {
-  displayedColumns: string[] = ['acoes', 'nome', 'documento', 'telefone', 'areaEstudo', 'logradouro', 'numero', 'bairro', 'cidade', 'uf']
+  displayedColumns: string[] = ['acoes', 'nome', 'documento', 'telefone', 'dataNascimento', 'areaEstudo', 'logradouro', 'numero', 'bairro', 'cidade', 'uf']
 
   dataSource = new MatTableDataSource<Pesquisador>();
 
@@ -25,7 +25,14 @@ export class PesquisadorLstComponent {
   }
 
   obterTodos():void {
-    this.dataSource.data = this.pesquisadorService.obterTodos()
+    this.pesquisadorService.obterTodos().subscribe({
+     next: (dados) => {
+      this.dataSource.data = dados
+     },
+     error(msg) {
+      console.log('Erro ao obter pesquisadores: ', msg)
+     },
+    })
   }
 
   remover(id:number):void {
@@ -33,8 +40,17 @@ export class PesquisadorLstComponent {
     ind:Number
 
     if(result) {
-      this.pesquisadorService.remover(id)
-      this.obterTodos()
+      this.pesquisadorService.remover(id).subscribe({
+        next: (dados) => {
+          if(dados > 0) {
+            alert("Pesquisador removido")
+            this.obterTodos()
+          }
+        },
+        error(msg) {
+          console.log('Erro ao obter pesquisadores: ', msg)
+         },
+      })
     }
   }
 

@@ -20,6 +20,7 @@ import { ServivoComponent } from './servivo/servivo.component';
 import { ServivoLstComponent } from './servivo-lst/servivo-lst.component';
 import { PesquisadorComponent } from './pesquisador/pesquisador.component';
 import { PesquisadorLstComponent } from './pesquisador-lst/pesquisador-lst.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PesquisadorLstComponent } from './pesquisador-lst/pesquisador-lst.compo
     MatButtonModule,
     FormsModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

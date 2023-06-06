@@ -19,11 +19,25 @@ export class PesquisadorComponent implements OnInit {
   salvar() {
     if (this.id > 0) {
       this.pesquisador.id = this.id
-      this.pesquisadorService.alterar(this.pesquisador)
+      this.pesquisadorService.alterar(this.id, this.pesquisador).subscribe({
+        next: () => {
+          this.router.navigate(['/pesquisadores'])
+        },
+        error(msg) {
+          console.log('Erro ao obter pesquisadores: ', msg)
+        }
+      })
     } else {
-      this.pesquisadorService.inserir(this.pesquisador)
+      this.pesquisadorService.inserir(this.pesquisador).subscribe({
+        next:() => {
+          this.router.navigate(['/pesquisadores'])
+        },
+        error(msg) {
+          console.log('Erro ao obter pesquisadores: ', msg)
+        }
+      })
     }
-    this.router.navigate(['/pesquisadores'])
+    
   }
 
   ngOnInit(): void {
@@ -36,7 +50,14 @@ export class PesquisadorComponent implements OnInit {
   }
 
   carregarPesquisador(id:number):void { 
-    this.pesquisador = this.pesquisadorService.obterPorId(id)
+    this.pesquisadorService.obterPorId(id).subscribe({
+      next:(dados) => {
+        this.pesquisador = dados
+      },
+      error(msg) {
+        console.log('Erro ao obter pesquisadores: ', msg)
+      }
+    })
   }
 
   voltar() {

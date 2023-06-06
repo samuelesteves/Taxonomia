@@ -14,7 +14,14 @@
                     <mat-label>Documento</mat-label>
                     <input matInput placeholder="Documento" name="documento" [(ngModel)]="pesquisador.documento" />
                 </mat-form-field>
+
+                <mat-form-field fxFlex="50%">
+                    <mat-label>Data Nascimento</mat-label>
+                    <input matInput placeholder="Documento" name="documento" [(ngModel)]="pesquisador.dataNascimento" />
+                </mat-form-field>
             </div>
+
+            
 
             <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="left">
                 <mat-form-field>
@@ -33,7 +40,7 @@
                 <mat-form-field>
                     <mat-label>Logradouro</mat-label>
                     <input matInput name="logradouro"
-                        [(ngModel)]="pesquisador.enderecoPessoa.logradouro" />
+                        [(ngModel)]="pesquisador.enderecoPessoa.endereco" />
                 </mat-form-field>
 
                 <mat-form-field>
@@ -58,7 +65,7 @@
             <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="3.5%" fxLayoutAlign="left">
                 <mat-form-field>
                     <mat-label>UF</mat-label>
-                    <input matInput name="uf" [(ngModel)]="pesquisador.enderecoPessoa.uf" />
+                    <input matInput name="uf" [(ngModel)]="pesquisador.enderecoPessoa.estado" />
                 </mat-form-field>
             </div>
         </form>
